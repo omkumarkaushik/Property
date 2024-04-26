@@ -31,13 +31,13 @@ public class RentalPropertyController {
 	}
 
 	@PostMapping("/updateProperty")
-	public void addProperty(@RequestBody int propertyId, double expectedRent)
+	public void addProperty(@RequestBody Integer propertyId, double expectedRent)
 	{
 		rpService.updateRentalProperty(propertyId, expectedRent);
 	}
 
 	@PostMapping("/deleteProperty")
-	public void deleteProperty(int propertyId)
+	public void deleteProperty(@RequestBody Integer propertyId)
 	{
 		rpService.deleteRentalProperty(propertyId);
 	}
@@ -45,6 +45,11 @@ public class RentalPropertyController {
 	@GetMapping("/allProperty")
 	public List<RentalPropertyModel> getAllProperty() {
 		return rpService.getAllProperty();
+	}
+	
+	@GetMapping("/cityProp")
+	public List<RentalPropertyModel> getAllPropertyByCategory(@RequestBody String city) {
+		return rpService.getByCity(city);
 	}
 	
 }

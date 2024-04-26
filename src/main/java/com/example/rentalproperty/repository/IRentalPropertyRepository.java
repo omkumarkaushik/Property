@@ -9,7 +9,7 @@ public interface IRentalPropertyRepository {
 
 	void addRentalProperty(RentalPropertyModel rentalProperty);
 	void updateRentalProperty(int propertyId, double expectedRent);
-	void deleteRentalProperty(int propertyId);
+	void deleteRentalProperty(Integer propertyId);
 	RentalPropertyModel findById(int propertyId) throws PropertyNotFoundException;
 	
 	List<RentalPropertyModel> showAll() throws PropertyNotFoundException;

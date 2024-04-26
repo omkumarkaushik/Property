@@ -42,7 +42,7 @@ public class RentalPropertyRepoImpl implements IRentalPropertyRepository {
 	}
 
 	@Override
-	public void deleteRentalProperty(int propertyId) {
+	public void deleteRentalProperty(Integer propertyId) {
 		String deleteQuery = "delete from rentalProperty where propertyId = ?";
 		Object[] property = {propertyId};
 		jdbcTemplate.update(deleteQuery, property);
@@ -81,8 +81,9 @@ public class RentalPropertyRepoImpl implements IRentalPropertyRepository {
 
 	@Override
 	public List<RentalPropertyModel> findByCity(String city) throws PropertyNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+		String query = "Select * from rentalProperty where city ="+city;
+//		Object[] property = {city};
+		return jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(RentalPropertyModel.class));
 	}
 
 	@Override

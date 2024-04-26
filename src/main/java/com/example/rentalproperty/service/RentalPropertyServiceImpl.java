@@ -34,7 +34,7 @@ public class RentalPropertyServiceImpl implements IRentalPropertyService {
 	}
 
 	@Override
-	public void deleteRentalProperty(int propertyId) {
+	public void deleteRentalProperty(Integer propertyId) {
 		rentalPropertyRepo.deleteRentalProperty(propertyId);
 		
 	}
@@ -71,8 +71,7 @@ public class RentalPropertyServiceImpl implements IRentalPropertyService {
 
 	@Override
 	public List<RentalPropertyModel> getByCity(String city) throws PropertyNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+		return rentalPropertyRepo.findByCity(city);
 	}
 
 	@Override

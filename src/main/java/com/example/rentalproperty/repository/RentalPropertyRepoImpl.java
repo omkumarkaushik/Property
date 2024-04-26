@@ -3,6 +3,7 @@ package com.example.rentalproperty.repository;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -88,6 +89,14 @@ public class RentalPropertyRepoImpl implements IRentalPropertyRepository {
 	public List<RentalPropertyModel> findByLocation(String location) throws PropertyNotFoundException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<RentalPropertyModel> showAll() throws PropertyNotFoundException {
+		// TODO Auto-generated method stub
+		String query = "Select * from rentalProperty";
+		List<RentalPropertyModel> lst = jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(RentalPropertyModel.class));
+		return lst;
 	}
 
 }

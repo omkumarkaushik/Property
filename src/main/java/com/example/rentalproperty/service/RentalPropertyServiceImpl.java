@@ -81,4 +81,11 @@ public class RentalPropertyServiceImpl implements IRentalPropertyService {
 		return null;
 	}
 
+	@Override
+	public List<RentalPropertyModel> getAllProperty() throws PropertyNotFoundException {
+		// TODO Auto-generated method stub
+		return rentalPropertyRepo.showAll();
+		
+	}
+
 }

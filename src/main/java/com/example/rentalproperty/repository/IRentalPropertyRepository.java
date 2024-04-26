@@ -12,6 +12,7 @@ public interface IRentalPropertyRepository {
 	void deleteRentalProperty(int propertyId);
 	RentalPropertyModel findById(int propertyId) throws PropertyNotFoundException;
 	
+	List<RentalPropertyModel> showAll() throws PropertyNotFoundException;
 	List<RentalPropertyModel> findByCategory(String category) throws PropertyNotFoundException;
 	List<RentalPropertyModel> findByType(String category) throws PropertyNotFoundException;
 	List<RentalPropertyModel> findByRentRange(String category) throws PropertyNotFoundException;

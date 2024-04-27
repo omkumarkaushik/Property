@@ -40,9 +40,8 @@ public class RentalPropertyServiceImpl implements IRentalPropertyService {
 	}
 
 	@Override
-	public RentalPropertyModel getById(int propertyId) throws PropertyNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<RentalPropertyModel> getById(int propertyId) throws PropertyNotFoundException {
+		return rentalPropertyRepo.findById(propertyId);
 	}
 
 	@Override
@@ -58,9 +57,8 @@ public class RentalPropertyServiceImpl implements IRentalPropertyService {
 	}
 
 	@Override
-	public List<RentalPropertyModel> getByRentRange(String category) throws PropertyNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<RentalPropertyModel> getByRentRange() throws PropertyNotFoundException {
+		return rentalPropertyRepo.findByRentRange();
 	}
 
 	@Override
@@ -85,6 +83,12 @@ public class RentalPropertyServiceImpl implements IRentalPropertyService {
 		// TODO Auto-generated method stub
 		return rentalPropertyRepo.showAll();
 		
+	}
+
+	@Override
+	public List<RentalPropertyModel> getByRentRange(String category) throws PropertyNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

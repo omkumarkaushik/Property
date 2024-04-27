@@ -52,4 +52,13 @@ public class RentalPropertyController {
 		return rpService.getByCity(city);
 	}
 	
+	@GetMapping("/getById")
+	public List<RentalPropertyModel> getAllPropertyById(@RequestBody Integer id) {
+		return rpService.getById(id);
+	}
+	
+	@GetMapping("/getAllRange")
+	public List<RentalPropertyModel> getAllRentRange() {
+		return rpService.getByRentRange();
+	}
 }

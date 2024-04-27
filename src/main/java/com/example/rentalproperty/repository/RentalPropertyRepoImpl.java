@@ -50,9 +50,9 @@ public class RentalPropertyRepoImpl implements IRentalPropertyRepository {
 	}
 
 	@Override
-	public RentalPropertyModel findById(int propertyId) throws PropertyNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<RentalPropertyModel> findById(int propertyId) throws PropertyNotFoundException {
+		String query = "Select * from rentalProperty where propertyId ="+propertyId;
+		return jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(RentalPropertyModel.class));
 	}
 
 	@Override
@@ -68,9 +68,9 @@ public class RentalPropertyRepoImpl implements IRentalPropertyRepository {
 	}
 
 	@Override
-	public List<RentalPropertyModel> findByRentRange(String category) throws PropertyNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<RentalPropertyModel> findByRentRange() throws PropertyNotFoundException {
+		String query = "Select * from rentalProperty order by rentalExpected";
+		return jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(RentalPropertyModel.class));
 	}
 
 	@Override
@@ -98,6 +98,12 @@ public class RentalPropertyRepoImpl implements IRentalPropertyRepository {
 		String query = "Select * from rentalProperty";
 		List<RentalPropertyModel> lst = jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(RentalPropertyModel.class));
 		return lst;
+	}
+
+	@Override
+	public List<RentalPropertyModel> findByRentRange(String category) throws PropertyNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

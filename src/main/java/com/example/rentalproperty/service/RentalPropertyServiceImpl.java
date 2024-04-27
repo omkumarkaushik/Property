@@ -34,15 +34,14 @@ public class RentalPropertyServiceImpl implements IRentalPropertyService {
 	}
 
 	@Override
-	public void deleteRentalProperty(int propertyId) {
+	public void deleteRentalProperty(Integer propertyId) {
 		rentalPropertyRepo.deleteRentalProperty(propertyId);
 		
 	}
 
 	@Override
-	public RentalPropertyModel getById(int propertyId) throws PropertyNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<RentalPropertyModel> getById(int propertyId) throws PropertyNotFoundException {
+		return rentalPropertyRepo.findById(propertyId);
 	}
 
 	@Override
@@ -58,9 +57,8 @@ public class RentalPropertyServiceImpl implements IRentalPropertyService {
 	}
 
 	@Override
-	public List<RentalPropertyModel> getByRentRange(String category) throws PropertyNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<RentalPropertyModel> getByRentRange() throws PropertyNotFoundException {
+		return rentalPropertyRepo.findByRentRange();
 	}
 
 	@Override
@@ -71,12 +69,24 @@ public class RentalPropertyServiceImpl implements IRentalPropertyService {
 
 	@Override
 	public List<RentalPropertyModel> getByCity(String city) throws PropertyNotFoundException {
+		return rentalPropertyRepo.findByCity(city);
+	}
+
+	@Override
+	public List<RentalPropertyModel> getByLocation(String location) throws PropertyNotFoundException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<RentalPropertyModel> getByLocation(String location) throws PropertyNotFoundException {
+	public List<RentalPropertyModel> getAllProperty() throws PropertyNotFoundException {
+		// TODO Auto-generated method stub
+		return rentalPropertyRepo.showAll();
+		
+	}
+
+	@Override
+	public List<RentalPropertyModel> getByRentRange(String category) throws PropertyNotFoundException {
 		// TODO Auto-generated method stub
 		return null;
 	}

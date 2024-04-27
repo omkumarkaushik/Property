@@ -1,6 +1,9 @@
 package com.example.rentalproperty.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,16 +31,34 @@ public class RentalPropertyController {
 	}
 
 	@PostMapping("/updateProperty")
-	public void addProperty(@RequestBody int propertyId, double expectedRent)
+	public void addProperty(@RequestBody Integer propertyId, double expectedRent)
 	{
 		rpService.updateRentalProperty(propertyId, expectedRent);
 	}
 
 	@PostMapping("/deleteProperty")
-	public void deleteProperty(int propertyId)
+	public void deleteProperty(@RequestBody Integer propertyId)
 	{
 		rpService.deleteRentalProperty(propertyId);
 	}
 
+	@GetMapping("/allProperty")
+	public List<RentalPropertyModel> getAllProperty() {
+		return rpService.getAllProperty();
+	}
 	
+	@GetMapping("/cityProp")
+	public List<RentalPropertyModel> getAllPropertyByCategory(@RequestBody String city) {
+		return rpService.getByCity(city);
+	}
+	
+	@GetMapping("/getById")
+	public List<RentalPropertyModel> getAllPropertyById(@RequestBody Integer id) {
+		return rpService.getById(id);
+	}
+	
+	@GetMapping("/getAllRange")
+	public List<RentalPropertyModel> getAllRentRange() {
+		return rpService.getByRentRange();
+	}
 }

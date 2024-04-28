@@ -14,6 +14,19 @@ import lombok.NoArgsConstructor;
 @Entity(name = "RentalProperty")
 public class RentalPropertyModel {
 
+	public RentalPropertyModel(Integer propertyId, String name, String type, String bedrooms, String area,
+			String location, String city, Double rentalExpected, Double securityDeposit) {
+		super();
+		this.propertyId = propertyId;
+		this.name = name;
+		this.type = type;
+		this.bedrooms = bedrooms;
+		this.area = area;
+		this.location = location;
+		this.city = city;
+		this.rentalExpected = rentalExpected;
+		this.securityDeposit = securityDeposit;
+	}
 	public Integer propertyId;
 	public void setPropertyId(Integer propertyId) {
 		this.propertyId = propertyId;

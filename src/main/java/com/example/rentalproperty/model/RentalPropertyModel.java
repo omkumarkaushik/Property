@@ -27,6 +27,10 @@ public class RentalPropertyModel {
 		this.rentalExpected = rentalExpected;
 		this.securityDeposit = securityDeposit;
 	}
+	
+	public RentalPropertyModel() {
+		
+	}
 	public Integer propertyId;
 	public void setPropertyId(Integer propertyId) {
 		this.propertyId = propertyId;

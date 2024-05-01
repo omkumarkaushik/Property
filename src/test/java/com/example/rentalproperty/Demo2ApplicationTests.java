@@ -55,7 +55,7 @@ class Demo2ApplicationTests {
 	
 	/*
 	 * Void method ke liye Verify use hota hai to check if 
-	 * repository is hit at least one time.
+	 * repository is hit at least one/more time.
 	 */
 	@Test
 	public void addPropertyTest() {

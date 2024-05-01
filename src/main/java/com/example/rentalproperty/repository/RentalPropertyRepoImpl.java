@@ -57,14 +57,17 @@ public class RentalPropertyRepoImpl implements IRentalPropertyRepository {
 
 	@Override
 	public List<RentalPropertyModel> findByCategory(String category) throws PropertyNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+		String query = "Select * from rentalProperty where bedrooms = "+category;
+//		Object[] property = {category};
+		return jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(RentalPropertyModel.class));
+		
 	}
 
 	@Override
-	public List<RentalPropertyModel> findByType(String category) throws PropertyNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+	public List<RentalPropertyModel> findByType(String type) throws PropertyNotFoundException {
+		String query = "Select * from rentalProperty where type = "+type;
+//		Object[] property = {category};
+		return jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(RentalPropertyModel.class));
 	}
 
 	@Override
@@ -96,6 +99,13 @@ public class RentalPropertyRepoImpl implements IRentalPropertyRepository {
 	public List<RentalPropertyModel> showAll() throws PropertyNotFoundException {
 		// TODO Auto-generated method stub
 		String query = "Select * from rentalProperty";
+		List<RentalPropertyModel> lst = jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(RentalPropertyModel.class));
+		return lst;
+	}
+
+	@Override
+	public List<RentalPropertyModel> findByRentRange(String lowerRange, String higherRange) throws PropertyNotFoundException {
+		String query = "Select * from rentalProperty where rentalExpected between "+lowerRange +" and "+higherRange;
 		List<RentalPropertyModel> lst = jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(RentalPropertyModel.class));
 		return lst;
 	}

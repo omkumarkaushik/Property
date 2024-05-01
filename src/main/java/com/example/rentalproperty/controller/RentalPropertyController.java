@@ -61,4 +61,19 @@ public class RentalPropertyController {
 	public List<RentalPropertyModel> getAllRentRange() {
 		return rpService.getByRentRange();
 	}
+	
+	@GetMapping("/getAllCategory")
+	public List<RentalPropertyModel> getAllCategory(@RequestBody String category) {
+		return rpService.getByCategory(category);
+	}
+	
+	@GetMapping("/getAllType")
+	public List<RentalPropertyModel> getAllType(@RequestBody String type) {
+		return rpService.getByType(type);
+	}
+	
+	@GetMapping("/getAllRentRange")
+	public List<RentalPropertyModel> getAllRange(@RequestBody String lowerRange, String higherRange) {
+		return rpService.getByRentRange(lowerRange, higherRange);
+	}
 }

@@ -21,5 +21,6 @@ public interface IRentalPropertyService {
 	List<RentalPropertyModel> getByCity(String city) throws PropertyNotFoundException;
 	List<RentalPropertyModel> getByLocation(String location) throws PropertyNotFoundException;
 	List<RentalPropertyModel> getByRentRange() throws PropertyNotFoundException;
+	List<RentalPropertyModel> getByRentRange(String lowerRange, String higherRange) throws PropertyNotFoundException;
 	
 }

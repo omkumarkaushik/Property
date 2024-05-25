@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example.rentalproperty</groupId>
 	<artifactId>rentalPropertyApp</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<!--<version>0.0.1-SNAPSHOT</version>-->
 	<name>demo-2</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -72,8 +72,17 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>1.1.8.RELEASE</version>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>repackage</goal>
+                    </goals>
+                </execution>
+            </executions>
 			</plugin>
 		</plugins>
+		<finalName>rental-property</finalName>
 	</build>
 
 </project>

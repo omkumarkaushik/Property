@@ -65,9 +65,8 @@ public class RentalPropertyRepoImpl implements IRentalPropertyRepository {
 
 	@Override
 	public List<RentalPropertyModel> findByType(String type) throws PropertyNotFoundException {
-		String query = "Select * from rentalProperty where type = "+type;
-//		Object[] property = {category};
-		return jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(RentalPropertyModel.class));
+		String query = "Select * from rentalProperty where type = ?";
+		return jdbcTemplate.query(query, new Object[]{type}, BeanPropertyRowMapper.newInstance(RentalPropertyModel.class));
 	}
 
 	@Override
@@ -84,9 +83,8 @@ public class RentalPropertyRepoImpl implements IRentalPropertyRepository {
 
 	@Override
 	public List<RentalPropertyModel> findByCity(String city) throws PropertyNotFoundException {
-		String query = "Select * from rentalProperty where city ="+city;
-//		Object[] property = {city};
-		return jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(RentalPropertyModel.class));
+		String query = "Select * from rentalProperty where city = ?";
+		return jdbcTemplate.query(query, new Object[]{city}, BeanPropertyRowMapper.newInstance(RentalPropertyModel.class));
 	}
 
 	@Override
@@ -105,8 +103,8 @@ public class RentalPropertyRepoImpl implements IRentalPropertyRepository {
 
 	@Override
 	public List<RentalPropertyModel> findByRentRange(String lowerRange, String higherRange) throws PropertyNotFoundException {
-		String query = "Select * from rentalProperty where rentalExpected between "+lowerRange +" and "+higherRange;
-		List<RentalPropertyModel> lst = jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(RentalPropertyModel.class));
+		String query = "Select * from rentalProperty where rentalExpected between ? and ?";
+		List<RentalPropertyModel> lst = jdbcTemplate.query(query, new Object[]{lowerRange, higherRange}, BeanPropertyRowMapper.newInstance(RentalPropertyModel.class));
 		return lst;
 	}
 

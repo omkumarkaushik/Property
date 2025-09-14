@@ -57,9 +57,8 @@ public class RentalPropertyRepoImpl implements IRentalPropertyRepository {
 
 	@Override
 	public List<RentalPropertyModel> findByCategory(String category) throws PropertyNotFoundException {
-		String query = "Select * from rentalProperty where bedrooms = "+category;
-//		Object[] property = {category};
-		return jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(RentalPropertyModel.class));
+		String query = "Select * from rentalProperty where bedrooms = ?";
+		return jdbcTemplate.query(query, new Object[]{category}, BeanPropertyRowMapper.newInstance(RentalPropertyModel.class));
 		
 	}
 
